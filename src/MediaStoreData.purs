@@ -20,32 +20,40 @@ import Data.StrMap as StrMap
 import AWS.Request as Request
 import AWS.Request.Types as Types
 
-serviceName = "MediaStoreData" :: String
-
 
 -- | <p>Deletes an object at the specified path.</p>
 deleteObject :: forall eff. DeleteObjectRequest -> Aff (exception :: EXCEPTION | eff) DeleteObjectResponse
-deleteObject = Request.request serviceName "deleteObject" 
+deleteObject = Request.request service method  where
+    service = Request.ServiceName "MediaStoreData"
+    method = Request.MethodName "deleteObject"
 
 
 -- | <p>Gets the headers for an object at the specified path.</p>
 describeObject :: forall eff. DescribeObjectRequest -> Aff (exception :: EXCEPTION | eff) DescribeObjectResponse
-describeObject = Request.request serviceName "describeObject" 
+describeObject = Request.request service method  where
+    service = Request.ServiceName "MediaStoreData"
+    method = Request.MethodName "describeObject"
 
 
 -- | <p>Downloads the object at the specified path.</p>
 getObject :: forall eff. GetObjectRequest -> Aff (exception :: EXCEPTION | eff) GetObjectResponse
-getObject = Request.request serviceName "getObject" 
+getObject = Request.request service method  where
+    service = Request.ServiceName "MediaStoreData"
+    method = Request.MethodName "getObject"
 
 
 -- | <p>Provides a list of metadata entries about folders and objects in the specified folder.</p>
 listItems :: forall eff. ListItemsRequest -> Aff (exception :: EXCEPTION | eff) ListItemsResponse
-listItems = Request.request serviceName "listItems" 
+listItems = Request.request service method  where
+    service = Request.ServiceName "MediaStoreData"
+    method = Request.MethodName "listItems"
 
 
 -- | <p>Uploads an object to the specified path. Object sizes are limited to 10 MB.</p>
 putObject :: forall eff. PutObjectRequest -> Aff (exception :: EXCEPTION | eff) PutObjectResponse
-putObject = Request.request serviceName "putObject" 
+putObject = Request.request service method  where
+    service = Request.ServiceName "MediaStoreData"
+    method = Request.MethodName "putObject"
 
 
 -- | <p>The specified container was not found for the specified account.</p>
