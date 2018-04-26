@@ -10,7 +10,7 @@ options :: Options
 
 ``` purescript
 newtype ContainerNotFoundException
-  = ContainerNotFoundException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = ContainerNotFoundException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The specified container was not found for the specified account.</p>
@@ -35,7 +35,7 @@ Constructs ContainerNotFoundException from required parameters
 #### `newContainerNotFoundException'`
 
 ``` purescript
-newContainerNotFoundException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> ContainerNotFoundException
+newContainerNotFoundException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> ContainerNotFoundException
 ```
 
 Constructs ContainerNotFoundException's fields from required parameters
@@ -156,7 +156,7 @@ Constructs DescribeObjectRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeObjectResponse
-  = DescribeObjectResponse { "ETag" :: NullOrUndefined (ETag), "ContentType" :: NullOrUndefined (ContentType), "ContentLength" :: NullOrUndefined (NonNegativeLong), "CacheControl" :: NullOrUndefined (StringPrimitive), "LastModified" :: NullOrUndefined (TimeStamp) }
+  = DescribeObjectResponse { "ETag" :: Maybe (ETag), "ContentType" :: Maybe (ContentType), "ContentLength" :: Maybe (NonNegativeLong), "CacheControl" :: Maybe (StringPrimitive), "LastModified" :: Maybe (TimeStamp) }
 ```
 
 ##### Instances
@@ -179,7 +179,7 @@ Constructs DescribeObjectResponse from required parameters
 #### `newDescribeObjectResponse'`
 
 ``` purescript
-newDescribeObjectResponse' :: ({ "ETag" :: NullOrUndefined (ETag), "ContentType" :: NullOrUndefined (ContentType), "ContentLength" :: NullOrUndefined (NonNegativeLong), "CacheControl" :: NullOrUndefined (StringPrimitive), "LastModified" :: NullOrUndefined (TimeStamp) } -> { "ETag" :: NullOrUndefined (ETag), "ContentType" :: NullOrUndefined (ContentType), "ContentLength" :: NullOrUndefined (NonNegativeLong), "CacheControl" :: NullOrUndefined (StringPrimitive), "LastModified" :: NullOrUndefined (TimeStamp) }) -> DescribeObjectResponse
+newDescribeObjectResponse' :: ({ "ETag" :: Maybe (ETag), "ContentType" :: Maybe (ContentType), "ContentLength" :: Maybe (NonNegativeLong), "CacheControl" :: Maybe (StringPrimitive), "LastModified" :: Maybe (TimeStamp) } -> { "ETag" :: Maybe (ETag), "ContentType" :: Maybe (ContentType), "ContentLength" :: Maybe (NonNegativeLong), "CacheControl" :: Maybe (StringPrimitive), "LastModified" :: Maybe (TimeStamp) }) -> DescribeObjectResponse
 ```
 
 Constructs DescribeObjectResponse's fields from required parameters
@@ -220,7 +220,7 @@ Encode ErrorMessage
 
 ``` purescript
 newtype GetObjectRequest
-  = GetObjectRequest { "Path" :: PathNaming, "Range" :: NullOrUndefined (RangePattern) }
+  = GetObjectRequest { "Path" :: PathNaming, "Range" :: Maybe (RangePattern) }
 ```
 
 ##### Instances
@@ -243,7 +243,7 @@ Constructs GetObjectRequest from required parameters
 #### `newGetObjectRequest'`
 
 ``` purescript
-newGetObjectRequest' :: PathNaming -> ({ "Path" :: PathNaming, "Range" :: NullOrUndefined (RangePattern) } -> { "Path" :: PathNaming, "Range" :: NullOrUndefined (RangePattern) }) -> GetObjectRequest
+newGetObjectRequest' :: PathNaming -> ({ "Path" :: PathNaming, "Range" :: Maybe (RangePattern) } -> { "Path" :: PathNaming, "Range" :: Maybe (RangePattern) }) -> GetObjectRequest
 ```
 
 Constructs GetObjectRequest's fields from required parameters
@@ -252,7 +252,7 @@ Constructs GetObjectRequest's fields from required parameters
 
 ``` purescript
 newtype GetObjectResponse
-  = GetObjectResponse { "Body" :: NullOrUndefined (PayloadBlob), "CacheControl" :: NullOrUndefined (StringPrimitive), "ContentRange" :: NullOrUndefined (ContentRangePattern), "ContentLength" :: NullOrUndefined (NonNegativeLong), "ContentType" :: NullOrUndefined (ContentType), "ETag" :: NullOrUndefined (ETag), "LastModified" :: NullOrUndefined (TimeStamp), "StatusCode" :: StatusCode' }
+  = GetObjectResponse { "Body" :: Maybe (PayloadBlob), "CacheControl" :: Maybe (StringPrimitive), "ContentRange" :: Maybe (ContentRangePattern), "ContentLength" :: Maybe (NonNegativeLong), "ContentType" :: Maybe (ContentType), "ETag" :: Maybe (ETag), "LastModified" :: Maybe (TimeStamp), "StatusCode" :: StatusCode' }
 ```
 
 ##### Instances
@@ -275,7 +275,7 @@ Constructs GetObjectResponse from required parameters
 #### `newGetObjectResponse'`
 
 ``` purescript
-newGetObjectResponse' :: StatusCode' -> ({ "Body" :: NullOrUndefined (PayloadBlob), "CacheControl" :: NullOrUndefined (StringPrimitive), "ContentRange" :: NullOrUndefined (ContentRangePattern), "ContentLength" :: NullOrUndefined (NonNegativeLong), "ContentType" :: NullOrUndefined (ContentType), "ETag" :: NullOrUndefined (ETag), "LastModified" :: NullOrUndefined (TimeStamp), "StatusCode" :: StatusCode' } -> { "Body" :: NullOrUndefined (PayloadBlob), "CacheControl" :: NullOrUndefined (StringPrimitive), "ContentRange" :: NullOrUndefined (ContentRangePattern), "ContentLength" :: NullOrUndefined (NonNegativeLong), "ContentType" :: NullOrUndefined (ContentType), "ETag" :: NullOrUndefined (ETag), "LastModified" :: NullOrUndefined (TimeStamp), "StatusCode" :: StatusCode' }) -> GetObjectResponse
+newGetObjectResponse' :: StatusCode' -> ({ "Body" :: Maybe (PayloadBlob), "CacheControl" :: Maybe (StringPrimitive), "ContentRange" :: Maybe (ContentRangePattern), "ContentLength" :: Maybe (NonNegativeLong), "ContentType" :: Maybe (ContentType), "ETag" :: Maybe (ETag), "LastModified" :: Maybe (TimeStamp), "StatusCode" :: StatusCode' } -> { "Body" :: Maybe (PayloadBlob), "CacheControl" :: Maybe (StringPrimitive), "ContentRange" :: Maybe (ContentRangePattern), "ContentLength" :: Maybe (NonNegativeLong), "ContentType" :: Maybe (ContentType), "ETag" :: Maybe (ETag), "LastModified" :: Maybe (TimeStamp), "StatusCode" :: StatusCode' }) -> GetObjectResponse
 ```
 
 Constructs GetObjectResponse's fields from required parameters
@@ -284,7 +284,7 @@ Constructs GetObjectResponse's fields from required parameters
 
 ``` purescript
 newtype InternalServerError
-  = InternalServerError { "Message" :: NullOrUndefined (ErrorMessage) }
+  = InternalServerError { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The service is temporarily unavailable.</p>
@@ -309,7 +309,7 @@ Constructs InternalServerError from required parameters
 #### `newInternalServerError'`
 
 ``` purescript
-newInternalServerError' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> InternalServerError
+newInternalServerError' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> InternalServerError
 ```
 
 Constructs InternalServerError's fields from required parameters
@@ -318,7 +318,7 @@ Constructs InternalServerError's fields from required parameters
 
 ``` purescript
 newtype Item
-  = Item { "Name" :: NullOrUndefined (ItemName), "Type" :: NullOrUndefined (ItemType), "ETag" :: NullOrUndefined (ETag), "LastModified" :: NullOrUndefined (TimeStamp), "ContentType" :: NullOrUndefined (ContentType), "ContentLength" :: NullOrUndefined (NonNegativeLong) }
+  = Item { "Name" :: Maybe (ItemName), "Type" :: Maybe (ItemType), "ETag" :: Maybe (ETag), "LastModified" :: Maybe (TimeStamp), "ContentType" :: Maybe (ContentType), "ContentLength" :: Maybe (NonNegativeLong) }
 ```
 
 <p>A metadata entry for a folder or object.</p>
@@ -343,7 +343,7 @@ Constructs Item from required parameters
 #### `newItem'`
 
 ``` purescript
-newItem' :: ({ "Name" :: NullOrUndefined (ItemName), "Type" :: NullOrUndefined (ItemType), "ETag" :: NullOrUndefined (ETag), "LastModified" :: NullOrUndefined (TimeStamp), "ContentType" :: NullOrUndefined (ContentType), "ContentLength" :: NullOrUndefined (NonNegativeLong) } -> { "Name" :: NullOrUndefined (ItemName), "Type" :: NullOrUndefined (ItemType), "ETag" :: NullOrUndefined (ETag), "LastModified" :: NullOrUndefined (TimeStamp), "ContentType" :: NullOrUndefined (ContentType), "ContentLength" :: NullOrUndefined (NonNegativeLong) }) -> Item
+newItem' :: ({ "Name" :: Maybe (ItemName), "Type" :: Maybe (ItemType), "ETag" :: Maybe (ETag), "LastModified" :: Maybe (TimeStamp), "ContentType" :: Maybe (ContentType), "ContentLength" :: Maybe (NonNegativeLong) } -> { "Name" :: Maybe (ItemName), "Type" :: Maybe (ItemType), "ETag" :: Maybe (ETag), "LastModified" :: Maybe (TimeStamp), "ContentType" :: Maybe (ContentType), "ContentLength" :: Maybe (NonNegativeLong) }) -> Item
 ```
 
 Constructs Item's fields from required parameters
@@ -400,7 +400,7 @@ Encode ItemType
 
 ``` purescript
 newtype ListItemsRequest
-  = ListItemsRequest { "Path" :: NullOrUndefined (ListPathNaming), "MaxResults" :: NullOrUndefined (ListLimit), "NextToken" :: NullOrUndefined (PaginationToken) }
+  = ListItemsRequest { "Path" :: Maybe (ListPathNaming), "MaxResults" :: Maybe (ListLimit), "NextToken" :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -423,7 +423,7 @@ Constructs ListItemsRequest from required parameters
 #### `newListItemsRequest'`
 
 ``` purescript
-newListItemsRequest' :: ({ "Path" :: NullOrUndefined (ListPathNaming), "MaxResults" :: NullOrUndefined (ListLimit), "NextToken" :: NullOrUndefined (PaginationToken) } -> { "Path" :: NullOrUndefined (ListPathNaming), "MaxResults" :: NullOrUndefined (ListLimit), "NextToken" :: NullOrUndefined (PaginationToken) }) -> ListItemsRequest
+newListItemsRequest' :: ({ "Path" :: Maybe (ListPathNaming), "MaxResults" :: Maybe (ListLimit), "NextToken" :: Maybe (PaginationToken) } -> { "Path" :: Maybe (ListPathNaming), "MaxResults" :: Maybe (ListLimit), "NextToken" :: Maybe (PaginationToken) }) -> ListItemsRequest
 ```
 
 Constructs ListItemsRequest's fields from required parameters
@@ -432,7 +432,7 @@ Constructs ListItemsRequest's fields from required parameters
 
 ``` purescript
 newtype ListItemsResponse
-  = ListItemsResponse { "Items" :: NullOrUndefined (ItemList), "NextToken" :: NullOrUndefined (PaginationToken) }
+  = ListItemsResponse { "Items" :: Maybe (ItemList), "NextToken" :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -455,7 +455,7 @@ Constructs ListItemsResponse from required parameters
 #### `newListItemsResponse'`
 
 ``` purescript
-newListItemsResponse' :: ({ "Items" :: NullOrUndefined (ItemList), "NextToken" :: NullOrUndefined (PaginationToken) } -> { "Items" :: NullOrUndefined (ItemList), "NextToken" :: NullOrUndefined (PaginationToken) }) -> ListItemsResponse
+newListItemsResponse' :: ({ "Items" :: Maybe (ItemList), "NextToken" :: Maybe (PaginationToken) } -> { "Items" :: Maybe (ItemList), "NextToken" :: Maybe (PaginationToken) }) -> ListItemsResponse
 ```
 
 Constructs ListItemsResponse's fields from required parameters
@@ -512,7 +512,7 @@ Encode NonNegativeLong
 
 ``` purescript
 newtype ObjectNotFoundException
-  = ObjectNotFoundException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = ObjectNotFoundException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Could not perform an operation on an object that does not exist.</p>
@@ -537,7 +537,7 @@ Constructs ObjectNotFoundException from required parameters
 #### `newObjectNotFoundException'`
 
 ``` purescript
-newObjectNotFoundException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> ObjectNotFoundException
+newObjectNotFoundException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> ObjectNotFoundException
 ```
 
 Constructs ObjectNotFoundException's fields from required parameters
@@ -594,7 +594,7 @@ Encode PayloadBlob
 
 ``` purescript
 newtype PutObjectRequest
-  = PutObjectRequest { "Body" :: PayloadBlob, "Path" :: PathNaming, "ContentType" :: NullOrUndefined (ContentType), "CacheControl" :: NullOrUndefined (StringPrimitive), "StorageClass" :: NullOrUndefined (StorageClass) }
+  = PutObjectRequest { "Body" :: PayloadBlob, "Path" :: PathNaming, "ContentType" :: Maybe (ContentType), "CacheControl" :: Maybe (StringPrimitive), "StorageClass" :: Maybe (StorageClass) }
 ```
 
 ##### Instances
@@ -617,7 +617,7 @@ Constructs PutObjectRequest from required parameters
 #### `newPutObjectRequest'`
 
 ``` purescript
-newPutObjectRequest' :: PayloadBlob -> PathNaming -> ({ "Body" :: PayloadBlob, "Path" :: PathNaming, "ContentType" :: NullOrUndefined (ContentType), "CacheControl" :: NullOrUndefined (StringPrimitive), "StorageClass" :: NullOrUndefined (StorageClass) } -> { "Body" :: PayloadBlob, "Path" :: PathNaming, "ContentType" :: NullOrUndefined (ContentType), "CacheControl" :: NullOrUndefined (StringPrimitive), "StorageClass" :: NullOrUndefined (StorageClass) }) -> PutObjectRequest
+newPutObjectRequest' :: PayloadBlob -> PathNaming -> ({ "Body" :: PayloadBlob, "Path" :: PathNaming, "ContentType" :: Maybe (ContentType), "CacheControl" :: Maybe (StringPrimitive), "StorageClass" :: Maybe (StorageClass) } -> { "Body" :: PayloadBlob, "Path" :: PathNaming, "ContentType" :: Maybe (ContentType), "CacheControl" :: Maybe (StringPrimitive), "StorageClass" :: Maybe (StorageClass) }) -> PutObjectRequest
 ```
 
 Constructs PutObjectRequest's fields from required parameters
@@ -626,7 +626,7 @@ Constructs PutObjectRequest's fields from required parameters
 
 ``` purescript
 newtype PutObjectResponse
-  = PutObjectResponse { "ContentSHA256" :: NullOrUndefined (SHA256Hash), "ETag" :: NullOrUndefined (ETag), "StorageClass" :: NullOrUndefined (StorageClass) }
+  = PutObjectResponse { "ContentSHA256" :: Maybe (SHA256Hash), "ETag" :: Maybe (ETag), "StorageClass" :: Maybe (StorageClass) }
 ```
 
 ##### Instances
@@ -649,7 +649,7 @@ Constructs PutObjectResponse from required parameters
 #### `newPutObjectResponse'`
 
 ``` purescript
-newPutObjectResponse' :: ({ "ContentSHA256" :: NullOrUndefined (SHA256Hash), "ETag" :: NullOrUndefined (ETag), "StorageClass" :: NullOrUndefined (StorageClass) } -> { "ContentSHA256" :: NullOrUndefined (SHA256Hash), "ETag" :: NullOrUndefined (ETag), "StorageClass" :: NullOrUndefined (StorageClass) }) -> PutObjectResponse
+newPutObjectResponse' :: ({ "ContentSHA256" :: Maybe (SHA256Hash), "ETag" :: Maybe (ETag), "StorageClass" :: Maybe (StorageClass) } -> { "ContentSHA256" :: Maybe (SHA256Hash), "ETag" :: Maybe (ETag), "StorageClass" :: Maybe (StorageClass) }) -> PutObjectResponse
 ```
 
 Constructs PutObjectResponse's fields from required parameters
@@ -674,7 +674,7 @@ Encode RangePattern
 
 ``` purescript
 newtype RequestedRangeNotSatisfiableException
-  = RequestedRangeNotSatisfiableException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = RequestedRangeNotSatisfiableException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The requested content range is not valid.</p>
@@ -699,7 +699,7 @@ Constructs RequestedRangeNotSatisfiableException from required parameters
 #### `newRequestedRangeNotSatisfiableException'`
 
 ``` purescript
-newRequestedRangeNotSatisfiableException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> RequestedRangeNotSatisfiableException
+newRequestedRangeNotSatisfiableException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> RequestedRangeNotSatisfiableException
 ```
 
 Constructs RequestedRangeNotSatisfiableException's fields from required parameters

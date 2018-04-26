@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -20,7 +19,7 @@ options = defaultOptions { unwrapSingleConstructors = true }
 
 -- | <p>The specified container was not found for the specified account.</p>
 newtype ContainerNotFoundException = ContainerNotFoundException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeContainerNotFoundException :: Newtype ContainerNotFoundException _
 derive instance repGenericContainerNotFoundException :: Generic ContainerNotFoundException _
@@ -30,12 +29,12 @@ instance encodeContainerNotFoundException :: Encode ContainerNotFoundException w
 
 -- | Constructs ContainerNotFoundException from required parameters
 newContainerNotFoundException :: ContainerNotFoundException
-newContainerNotFoundException  = ContainerNotFoundException { "Message": (NullOrUndefined Nothing) }
+newContainerNotFoundException  = ContainerNotFoundException { "Message": Nothing }
 
 -- | Constructs ContainerNotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newContainerNotFoundException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ContainerNotFoundException
-newContainerNotFoundException'  customize = (ContainerNotFoundException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newContainerNotFoundException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ContainerNotFoundException
+newContainerNotFoundException'  customize = (ContainerNotFoundException <<< customize) { "Message": Nothing }
 
 
 
@@ -107,11 +106,11 @@ newDescribeObjectRequest' _Path customize = (DescribeObjectRequest <<< customize
 
 
 newtype DescribeObjectResponse = DescribeObjectResponse 
-  { "ETag" :: NullOrUndefined (ETag)
-  , "ContentType" :: NullOrUndefined (ContentType)
-  , "ContentLength" :: NullOrUndefined (NonNegativeLong)
-  , "CacheControl" :: NullOrUndefined (StringPrimitive)
-  , "LastModified" :: NullOrUndefined (TimeStamp)
+  { "ETag" :: Maybe (ETag)
+  , "ContentType" :: Maybe (ContentType)
+  , "ContentLength" :: Maybe (NonNegativeLong)
+  , "CacheControl" :: Maybe (StringPrimitive)
+  , "LastModified" :: Maybe (TimeStamp)
   }
 derive instance newtypeDescribeObjectResponse :: Newtype DescribeObjectResponse _
 derive instance repGenericDescribeObjectResponse :: Generic DescribeObjectResponse _
@@ -121,12 +120,12 @@ instance encodeDescribeObjectResponse :: Encode DescribeObjectResponse where enc
 
 -- | Constructs DescribeObjectResponse from required parameters
 newDescribeObjectResponse :: DescribeObjectResponse
-newDescribeObjectResponse  = DescribeObjectResponse { "CacheControl": (NullOrUndefined Nothing), "ContentLength": (NullOrUndefined Nothing), "ContentType": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing), "LastModified": (NullOrUndefined Nothing) }
+newDescribeObjectResponse  = DescribeObjectResponse { "CacheControl": Nothing, "ContentLength": Nothing, "ContentType": Nothing, "ETag": Nothing, "LastModified": Nothing }
 
 -- | Constructs DescribeObjectResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeObjectResponse' :: ( { "ETag" :: NullOrUndefined (ETag) , "ContentType" :: NullOrUndefined (ContentType) , "ContentLength" :: NullOrUndefined (NonNegativeLong) , "CacheControl" :: NullOrUndefined (StringPrimitive) , "LastModified" :: NullOrUndefined (TimeStamp) } -> {"ETag" :: NullOrUndefined (ETag) , "ContentType" :: NullOrUndefined (ContentType) , "ContentLength" :: NullOrUndefined (NonNegativeLong) , "CacheControl" :: NullOrUndefined (StringPrimitive) , "LastModified" :: NullOrUndefined (TimeStamp) } ) -> DescribeObjectResponse
-newDescribeObjectResponse'  customize = (DescribeObjectResponse <<< customize) { "CacheControl": (NullOrUndefined Nothing), "ContentLength": (NullOrUndefined Nothing), "ContentType": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing), "LastModified": (NullOrUndefined Nothing) }
+newDescribeObjectResponse' :: ( { "ETag" :: Maybe (ETag) , "ContentType" :: Maybe (ContentType) , "ContentLength" :: Maybe (NonNegativeLong) , "CacheControl" :: Maybe (StringPrimitive) , "LastModified" :: Maybe (TimeStamp) } -> {"ETag" :: Maybe (ETag) , "ContentType" :: Maybe (ContentType) , "ContentLength" :: Maybe (NonNegativeLong) , "CacheControl" :: Maybe (StringPrimitive) , "LastModified" :: Maybe (TimeStamp) } ) -> DescribeObjectResponse
+newDescribeObjectResponse'  customize = (DescribeObjectResponse <<< customize) { "CacheControl": Nothing, "ContentLength": Nothing, "ContentType": Nothing, "ETag": Nothing, "LastModified": Nothing }
 
 
 
@@ -150,7 +149,7 @@ instance encodeErrorMessage :: Encode ErrorMessage where encode = genericEncode 
 
 newtype GetObjectRequest = GetObjectRequest 
   { "Path" :: (PathNaming)
-  , "Range" :: NullOrUndefined (RangePattern)
+  , "Range" :: Maybe (RangePattern)
   }
 derive instance newtypeGetObjectRequest :: Newtype GetObjectRequest _
 derive instance repGenericGetObjectRequest :: Generic GetObjectRequest _
@@ -160,23 +159,23 @@ instance encodeGetObjectRequest :: Encode GetObjectRequest where encode = generi
 
 -- | Constructs GetObjectRequest from required parameters
 newGetObjectRequest :: PathNaming -> GetObjectRequest
-newGetObjectRequest _Path = GetObjectRequest { "Path": _Path, "Range": (NullOrUndefined Nothing) }
+newGetObjectRequest _Path = GetObjectRequest { "Path": _Path, "Range": Nothing }
 
 -- | Constructs GetObjectRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetObjectRequest' :: PathNaming -> ( { "Path" :: (PathNaming) , "Range" :: NullOrUndefined (RangePattern) } -> {"Path" :: (PathNaming) , "Range" :: NullOrUndefined (RangePattern) } ) -> GetObjectRequest
-newGetObjectRequest' _Path customize = (GetObjectRequest <<< customize) { "Path": _Path, "Range": (NullOrUndefined Nothing) }
+newGetObjectRequest' :: PathNaming -> ( { "Path" :: (PathNaming) , "Range" :: Maybe (RangePattern) } -> {"Path" :: (PathNaming) , "Range" :: Maybe (RangePattern) } ) -> GetObjectRequest
+newGetObjectRequest' _Path customize = (GetObjectRequest <<< customize) { "Path": _Path, "Range": Nothing }
 
 
 
 newtype GetObjectResponse = GetObjectResponse 
-  { "Body" :: NullOrUndefined (PayloadBlob)
-  , "CacheControl" :: NullOrUndefined (StringPrimitive)
-  , "ContentRange" :: NullOrUndefined (ContentRangePattern)
-  , "ContentLength" :: NullOrUndefined (NonNegativeLong)
-  , "ContentType" :: NullOrUndefined (ContentType)
-  , "ETag" :: NullOrUndefined (ETag)
-  , "LastModified" :: NullOrUndefined (TimeStamp)
+  { "Body" :: Maybe (PayloadBlob)
+  , "CacheControl" :: Maybe (StringPrimitive)
+  , "ContentRange" :: Maybe (ContentRangePattern)
+  , "ContentLength" :: Maybe (NonNegativeLong)
+  , "ContentType" :: Maybe (ContentType)
+  , "ETag" :: Maybe (ETag)
+  , "LastModified" :: Maybe (TimeStamp)
   , "StatusCode" :: (StatusCode')
   }
 derive instance newtypeGetObjectResponse :: Newtype GetObjectResponse _
@@ -187,18 +186,18 @@ instance encodeGetObjectResponse :: Encode GetObjectResponse where encode = gene
 
 -- | Constructs GetObjectResponse from required parameters
 newGetObjectResponse :: StatusCode' -> GetObjectResponse
-newGetObjectResponse _StatusCode = GetObjectResponse { "StatusCode": _StatusCode, "Body": (NullOrUndefined Nothing), "CacheControl": (NullOrUndefined Nothing), "ContentLength": (NullOrUndefined Nothing), "ContentRange": (NullOrUndefined Nothing), "ContentType": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing), "LastModified": (NullOrUndefined Nothing) }
+newGetObjectResponse _StatusCode = GetObjectResponse { "StatusCode": _StatusCode, "Body": Nothing, "CacheControl": Nothing, "ContentLength": Nothing, "ContentRange": Nothing, "ContentType": Nothing, "ETag": Nothing, "LastModified": Nothing }
 
 -- | Constructs GetObjectResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetObjectResponse' :: StatusCode' -> ( { "Body" :: NullOrUndefined (PayloadBlob) , "CacheControl" :: NullOrUndefined (StringPrimitive) , "ContentRange" :: NullOrUndefined (ContentRangePattern) , "ContentLength" :: NullOrUndefined (NonNegativeLong) , "ContentType" :: NullOrUndefined (ContentType) , "ETag" :: NullOrUndefined (ETag) , "LastModified" :: NullOrUndefined (TimeStamp) , "StatusCode" :: (StatusCode') } -> {"Body" :: NullOrUndefined (PayloadBlob) , "CacheControl" :: NullOrUndefined (StringPrimitive) , "ContentRange" :: NullOrUndefined (ContentRangePattern) , "ContentLength" :: NullOrUndefined (NonNegativeLong) , "ContentType" :: NullOrUndefined (ContentType) , "ETag" :: NullOrUndefined (ETag) , "LastModified" :: NullOrUndefined (TimeStamp) , "StatusCode" :: (StatusCode') } ) -> GetObjectResponse
-newGetObjectResponse' _StatusCode customize = (GetObjectResponse <<< customize) { "StatusCode": _StatusCode, "Body": (NullOrUndefined Nothing), "CacheControl": (NullOrUndefined Nothing), "ContentLength": (NullOrUndefined Nothing), "ContentRange": (NullOrUndefined Nothing), "ContentType": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing), "LastModified": (NullOrUndefined Nothing) }
+newGetObjectResponse' :: StatusCode' -> ( { "Body" :: Maybe (PayloadBlob) , "CacheControl" :: Maybe (StringPrimitive) , "ContentRange" :: Maybe (ContentRangePattern) , "ContentLength" :: Maybe (NonNegativeLong) , "ContentType" :: Maybe (ContentType) , "ETag" :: Maybe (ETag) , "LastModified" :: Maybe (TimeStamp) , "StatusCode" :: (StatusCode') } -> {"Body" :: Maybe (PayloadBlob) , "CacheControl" :: Maybe (StringPrimitive) , "ContentRange" :: Maybe (ContentRangePattern) , "ContentLength" :: Maybe (NonNegativeLong) , "ContentType" :: Maybe (ContentType) , "ETag" :: Maybe (ETag) , "LastModified" :: Maybe (TimeStamp) , "StatusCode" :: (StatusCode') } ) -> GetObjectResponse
+newGetObjectResponse' _StatusCode customize = (GetObjectResponse <<< customize) { "StatusCode": _StatusCode, "Body": Nothing, "CacheControl": Nothing, "ContentLength": Nothing, "ContentRange": Nothing, "ContentType": Nothing, "ETag": Nothing, "LastModified": Nothing }
 
 
 
 -- | <p>The service is temporarily unavailable.</p>
 newtype InternalServerError = InternalServerError 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInternalServerError :: Newtype InternalServerError _
 derive instance repGenericInternalServerError :: Generic InternalServerError _
@@ -208,23 +207,23 @@ instance encodeInternalServerError :: Encode InternalServerError where encode = 
 
 -- | Constructs InternalServerError from required parameters
 newInternalServerError :: InternalServerError
-newInternalServerError  = InternalServerError { "Message": (NullOrUndefined Nothing) }
+newInternalServerError  = InternalServerError { "Message": Nothing }
 
 -- | Constructs InternalServerError's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInternalServerError' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> InternalServerError
-newInternalServerError'  customize = (InternalServerError <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInternalServerError' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> InternalServerError
+newInternalServerError'  customize = (InternalServerError <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>A metadata entry for a folder or object.</p>
 newtype Item = Item 
-  { "Name" :: NullOrUndefined (ItemName)
-  , "Type" :: NullOrUndefined (ItemType)
-  , "ETag" :: NullOrUndefined (ETag)
-  , "LastModified" :: NullOrUndefined (TimeStamp)
-  , "ContentType" :: NullOrUndefined (ContentType)
-  , "ContentLength" :: NullOrUndefined (NonNegativeLong)
+  { "Name" :: Maybe (ItemName)
+  , "Type" :: Maybe (ItemType)
+  , "ETag" :: Maybe (ETag)
+  , "LastModified" :: Maybe (TimeStamp)
+  , "ContentType" :: Maybe (ContentType)
+  , "ContentLength" :: Maybe (NonNegativeLong)
   }
 derive instance newtypeItem :: Newtype Item _
 derive instance repGenericItem :: Generic Item _
@@ -234,12 +233,12 @@ instance encodeItem :: Encode Item where encode = genericEncode options
 
 -- | Constructs Item from required parameters
 newItem :: Item
-newItem  = Item { "ContentLength": (NullOrUndefined Nothing), "ContentType": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing), "LastModified": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newItem  = Item { "ContentLength": Nothing, "ContentType": Nothing, "ETag": Nothing, "LastModified": Nothing, "Name": Nothing, "Type": Nothing }
 
 -- | Constructs Item's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newItem' :: ( { "Name" :: NullOrUndefined (ItemName) , "Type" :: NullOrUndefined (ItemType) , "ETag" :: NullOrUndefined (ETag) , "LastModified" :: NullOrUndefined (TimeStamp) , "ContentType" :: NullOrUndefined (ContentType) , "ContentLength" :: NullOrUndefined (NonNegativeLong) } -> {"Name" :: NullOrUndefined (ItemName) , "Type" :: NullOrUndefined (ItemType) , "ETag" :: NullOrUndefined (ETag) , "LastModified" :: NullOrUndefined (TimeStamp) , "ContentType" :: NullOrUndefined (ContentType) , "ContentLength" :: NullOrUndefined (NonNegativeLong) } ) -> Item
-newItem'  customize = (Item <<< customize) { "ContentLength": (NullOrUndefined Nothing), "ContentType": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing), "LastModified": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newItem' :: ( { "Name" :: Maybe (ItemName) , "Type" :: Maybe (ItemType) , "ETag" :: Maybe (ETag) , "LastModified" :: Maybe (TimeStamp) , "ContentType" :: Maybe (ContentType) , "ContentLength" :: Maybe (NonNegativeLong) } -> {"Name" :: Maybe (ItemName) , "Type" :: Maybe (ItemType) , "ETag" :: Maybe (ETag) , "LastModified" :: Maybe (TimeStamp) , "ContentType" :: Maybe (ContentType) , "ContentLength" :: Maybe (NonNegativeLong) } ) -> Item
+newItem'  customize = (Item <<< customize) { "ContentLength": Nothing, "ContentType": Nothing, "ETag": Nothing, "LastModified": Nothing, "Name": Nothing, "Type": Nothing }
 
 
 
@@ -271,9 +270,9 @@ instance encodeItemType :: Encode ItemType where encode = genericEncode options
 
 
 newtype ListItemsRequest = ListItemsRequest 
-  { "Path" :: NullOrUndefined (ListPathNaming)
-  , "MaxResults" :: NullOrUndefined (ListLimit)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
+  { "Path" :: Maybe (ListPathNaming)
+  , "MaxResults" :: Maybe (ListLimit)
+  , "NextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeListItemsRequest :: Newtype ListItemsRequest _
 derive instance repGenericListItemsRequest :: Generic ListItemsRequest _
@@ -283,18 +282,18 @@ instance encodeListItemsRequest :: Encode ListItemsRequest where encode = generi
 
 -- | Constructs ListItemsRequest from required parameters
 newListItemsRequest :: ListItemsRequest
-newListItemsRequest  = ListItemsRequest { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "Path": (NullOrUndefined Nothing) }
+newListItemsRequest  = ListItemsRequest { "MaxResults": Nothing, "NextToken": Nothing, "Path": Nothing }
 
 -- | Constructs ListItemsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListItemsRequest' :: ( { "Path" :: NullOrUndefined (ListPathNaming) , "MaxResults" :: NullOrUndefined (ListLimit) , "NextToken" :: NullOrUndefined (PaginationToken) } -> {"Path" :: NullOrUndefined (ListPathNaming) , "MaxResults" :: NullOrUndefined (ListLimit) , "NextToken" :: NullOrUndefined (PaginationToken) } ) -> ListItemsRequest
-newListItemsRequest'  customize = (ListItemsRequest <<< customize) { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "Path": (NullOrUndefined Nothing) }
+newListItemsRequest' :: ( { "Path" :: Maybe (ListPathNaming) , "MaxResults" :: Maybe (ListLimit) , "NextToken" :: Maybe (PaginationToken) } -> {"Path" :: Maybe (ListPathNaming) , "MaxResults" :: Maybe (ListLimit) , "NextToken" :: Maybe (PaginationToken) } ) -> ListItemsRequest
+newListItemsRequest'  customize = (ListItemsRequest <<< customize) { "MaxResults": Nothing, "NextToken": Nothing, "Path": Nothing }
 
 
 
 newtype ListItemsResponse = ListItemsResponse 
-  { "Items" :: NullOrUndefined (ItemList)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
+  { "Items" :: Maybe (ItemList)
+  , "NextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeListItemsResponse :: Newtype ListItemsResponse _
 derive instance repGenericListItemsResponse :: Generic ListItemsResponse _
@@ -304,12 +303,12 @@ instance encodeListItemsResponse :: Encode ListItemsResponse where encode = gene
 
 -- | Constructs ListItemsResponse from required parameters
 newListItemsResponse :: ListItemsResponse
-newListItemsResponse  = ListItemsResponse { "Items": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListItemsResponse  = ListItemsResponse { "Items": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListItemsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListItemsResponse' :: ( { "Items" :: NullOrUndefined (ItemList) , "NextToken" :: NullOrUndefined (PaginationToken) } -> {"Items" :: NullOrUndefined (ItemList) , "NextToken" :: NullOrUndefined (PaginationToken) } ) -> ListItemsResponse
-newListItemsResponse'  customize = (ListItemsResponse <<< customize) { "Items": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListItemsResponse' :: ( { "Items" :: Maybe (ItemList) , "NextToken" :: Maybe (PaginationToken) } -> {"Items" :: Maybe (ItemList) , "NextToken" :: Maybe (PaginationToken) } ) -> ListItemsResponse
+newListItemsResponse'  customize = (ListItemsResponse <<< customize) { "Items": Nothing, "NextToken": Nothing }
 
 
 
@@ -342,7 +341,7 @@ instance encodeNonNegativeLong :: Encode NonNegativeLong where encode = genericE
 
 -- | <p>Could not perform an operation on an object that does not exist.</p>
 newtype ObjectNotFoundException = ObjectNotFoundException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeObjectNotFoundException :: Newtype ObjectNotFoundException _
 derive instance repGenericObjectNotFoundException :: Generic ObjectNotFoundException _
@@ -352,12 +351,12 @@ instance encodeObjectNotFoundException :: Encode ObjectNotFoundException where e
 
 -- | Constructs ObjectNotFoundException from required parameters
 newObjectNotFoundException :: ObjectNotFoundException
-newObjectNotFoundException  = ObjectNotFoundException { "Message": (NullOrUndefined Nothing) }
+newObjectNotFoundException  = ObjectNotFoundException { "Message": Nothing }
 
 -- | Constructs ObjectNotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newObjectNotFoundException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ObjectNotFoundException
-newObjectNotFoundException'  customize = (ObjectNotFoundException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newObjectNotFoundException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ObjectNotFoundException
+newObjectNotFoundException'  customize = (ObjectNotFoundException <<< customize) { "Message": Nothing }
 
 
 
@@ -391,9 +390,9 @@ instance encodePayloadBlob :: Encode PayloadBlob where encode = genericEncode op
 newtype PutObjectRequest = PutObjectRequest 
   { "Body" :: (PayloadBlob)
   , "Path" :: (PathNaming)
-  , "ContentType" :: NullOrUndefined (ContentType)
-  , "CacheControl" :: NullOrUndefined (StringPrimitive)
-  , "StorageClass" :: NullOrUndefined (StorageClass)
+  , "ContentType" :: Maybe (ContentType)
+  , "CacheControl" :: Maybe (StringPrimitive)
+  , "StorageClass" :: Maybe (StorageClass)
   }
 derive instance newtypePutObjectRequest :: Newtype PutObjectRequest _
 derive instance repGenericPutObjectRequest :: Generic PutObjectRequest _
@@ -403,19 +402,19 @@ instance encodePutObjectRequest :: Encode PutObjectRequest where encode = generi
 
 -- | Constructs PutObjectRequest from required parameters
 newPutObjectRequest :: PayloadBlob -> PathNaming -> PutObjectRequest
-newPutObjectRequest _Body _Path = PutObjectRequest { "Body": _Body, "Path": _Path, "CacheControl": (NullOrUndefined Nothing), "ContentType": (NullOrUndefined Nothing), "StorageClass": (NullOrUndefined Nothing) }
+newPutObjectRequest _Body _Path = PutObjectRequest { "Body": _Body, "Path": _Path, "CacheControl": Nothing, "ContentType": Nothing, "StorageClass": Nothing }
 
 -- | Constructs PutObjectRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutObjectRequest' :: PayloadBlob -> PathNaming -> ( { "Body" :: (PayloadBlob) , "Path" :: (PathNaming) , "ContentType" :: NullOrUndefined (ContentType) , "CacheControl" :: NullOrUndefined (StringPrimitive) , "StorageClass" :: NullOrUndefined (StorageClass) } -> {"Body" :: (PayloadBlob) , "Path" :: (PathNaming) , "ContentType" :: NullOrUndefined (ContentType) , "CacheControl" :: NullOrUndefined (StringPrimitive) , "StorageClass" :: NullOrUndefined (StorageClass) } ) -> PutObjectRequest
-newPutObjectRequest' _Body _Path customize = (PutObjectRequest <<< customize) { "Body": _Body, "Path": _Path, "CacheControl": (NullOrUndefined Nothing), "ContentType": (NullOrUndefined Nothing), "StorageClass": (NullOrUndefined Nothing) }
+newPutObjectRequest' :: PayloadBlob -> PathNaming -> ( { "Body" :: (PayloadBlob) , "Path" :: (PathNaming) , "ContentType" :: Maybe (ContentType) , "CacheControl" :: Maybe (StringPrimitive) , "StorageClass" :: Maybe (StorageClass) } -> {"Body" :: (PayloadBlob) , "Path" :: (PathNaming) , "ContentType" :: Maybe (ContentType) , "CacheControl" :: Maybe (StringPrimitive) , "StorageClass" :: Maybe (StorageClass) } ) -> PutObjectRequest
+newPutObjectRequest' _Body _Path customize = (PutObjectRequest <<< customize) { "Body": _Body, "Path": _Path, "CacheControl": Nothing, "ContentType": Nothing, "StorageClass": Nothing }
 
 
 
 newtype PutObjectResponse = PutObjectResponse 
-  { "ContentSHA256" :: NullOrUndefined (SHA256Hash)
-  , "ETag" :: NullOrUndefined (ETag)
-  , "StorageClass" :: NullOrUndefined (StorageClass)
+  { "ContentSHA256" :: Maybe (SHA256Hash)
+  , "ETag" :: Maybe (ETag)
+  , "StorageClass" :: Maybe (StorageClass)
   }
 derive instance newtypePutObjectResponse :: Newtype PutObjectResponse _
 derive instance repGenericPutObjectResponse :: Generic PutObjectResponse _
@@ -425,12 +424,12 @@ instance encodePutObjectResponse :: Encode PutObjectResponse where encode = gene
 
 -- | Constructs PutObjectResponse from required parameters
 newPutObjectResponse :: PutObjectResponse
-newPutObjectResponse  = PutObjectResponse { "ContentSHA256": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing), "StorageClass": (NullOrUndefined Nothing) }
+newPutObjectResponse  = PutObjectResponse { "ContentSHA256": Nothing, "ETag": Nothing, "StorageClass": Nothing }
 
 -- | Constructs PutObjectResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutObjectResponse' :: ( { "ContentSHA256" :: NullOrUndefined (SHA256Hash) , "ETag" :: NullOrUndefined (ETag) , "StorageClass" :: NullOrUndefined (StorageClass) } -> {"ContentSHA256" :: NullOrUndefined (SHA256Hash) , "ETag" :: NullOrUndefined (ETag) , "StorageClass" :: NullOrUndefined (StorageClass) } ) -> PutObjectResponse
-newPutObjectResponse'  customize = (PutObjectResponse <<< customize) { "ContentSHA256": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing), "StorageClass": (NullOrUndefined Nothing) }
+newPutObjectResponse' :: ( { "ContentSHA256" :: Maybe (SHA256Hash) , "ETag" :: Maybe (ETag) , "StorageClass" :: Maybe (StorageClass) } -> {"ContentSHA256" :: Maybe (SHA256Hash) , "ETag" :: Maybe (ETag) , "StorageClass" :: Maybe (StorageClass) } ) -> PutObjectResponse
+newPutObjectResponse'  customize = (PutObjectResponse <<< customize) { "ContentSHA256": Nothing, "ETag": Nothing, "StorageClass": Nothing }
 
 
 
@@ -445,7 +444,7 @@ instance encodeRangePattern :: Encode RangePattern where encode = genericEncode 
 
 -- | <p>The requested content range is not valid.</p>
 newtype RequestedRangeNotSatisfiableException = RequestedRangeNotSatisfiableException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeRequestedRangeNotSatisfiableException :: Newtype RequestedRangeNotSatisfiableException _
 derive instance repGenericRequestedRangeNotSatisfiableException :: Generic RequestedRangeNotSatisfiableException _
@@ -455,12 +454,12 @@ instance encodeRequestedRangeNotSatisfiableException :: Encode RequestedRangeNot
 
 -- | Constructs RequestedRangeNotSatisfiableException from required parameters
 newRequestedRangeNotSatisfiableException :: RequestedRangeNotSatisfiableException
-newRequestedRangeNotSatisfiableException  = RequestedRangeNotSatisfiableException { "Message": (NullOrUndefined Nothing) }
+newRequestedRangeNotSatisfiableException  = RequestedRangeNotSatisfiableException { "Message": Nothing }
 
 -- | Constructs RequestedRangeNotSatisfiableException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRequestedRangeNotSatisfiableException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> RequestedRangeNotSatisfiableException
-newRequestedRangeNotSatisfiableException'  customize = (RequestedRangeNotSatisfiableException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newRequestedRangeNotSatisfiableException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> RequestedRangeNotSatisfiableException
+newRequestedRangeNotSatisfiableException'  customize = (RequestedRangeNotSatisfiableException <<< customize) { "Message": Nothing }
 
 
 
